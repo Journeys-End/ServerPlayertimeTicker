@@ -2,6 +2,7 @@ package freegamerdev.serverplayertimeticker.DataClasses;
 
 public class ConfigData {
     private int maxPlaytimeSeconds;
+    private boolean resetPlaytimeOnKick;
     private String actionbarText;
     private String kickMessage;
     private String resetMessage;
@@ -15,6 +16,10 @@ public class ConfigData {
 
     public int getMaxPlaytimeSeconds() {
         return maxPlaytimeSeconds;
+    }
+
+    public boolean getResetPlaytimeOnKick() {
+        return resetPlaytimeOnKick;
     }
 
     public void setMaxPlaytimeSeconds(int maxPlaytimeSeconds) {

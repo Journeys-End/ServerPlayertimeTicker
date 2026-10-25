@@ -23,6 +23,7 @@ Downloads on Modrinth are my preferred way of downloading mods, check it out her
 2. **Configuration:**
    - After starting the server with the mod installed, a configuration file (`playtime_data.json`) will be generated in the `config` folder.
    - Edit the configuration file to adjust settings such as maximum playtime and hotbar message format.
+   - Set `"resetPlaytimeOnKick": true` in `config/serverplayertime/config.json` to reset a player's playtime when kicked for reaching the limit, allowing them to reconnect with the full allowance. Defaults to `false`, preserving the daily limit. Total played time is unchanged. Restart the server after changing this setting.
    - Note: Use %m and %s as seen in the default config to place the minute and second counter in the text.
 
 3. **Operation:**
