@@ -20,6 +20,9 @@ public class PlayerJoinListener {
                 final int playtime = playerPlaytimes.get(pl.getUuid().toString());
                 if(playtime>=ServerPlayertimeTicker.MAX_PLAYTIME_SECONDS){
                     handler.disconnect(Text.of(ServerPlayertimeTicker.KICK_MESSAGE));
+                    if (ServerPlayertimeTicker.RESET_PLAYTIME_ON_KICK) {
+                        playerPlaytimes.put(pl.getUuid().toString(), 0);
+                    }
                 }
             }
         }
