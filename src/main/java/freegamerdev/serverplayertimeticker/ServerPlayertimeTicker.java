@@ -33,6 +33,7 @@ public class ServerPlayertimeTicker implements ModInitializer {
 
     public static int MAX_PLAYTIME_SECONDS = 5 * 60 * 60;
     public static boolean RESET_PLAYTIME_ON_KICK = false;
+    public static boolean SEND_ACTIONBAR = true;
     public static String ACTIONBAR_TEXT = "§e{{time}} {{progressbar}}";
     public static String KICK_MESSAGE = "You have exceeded the maximum playtime for today.";
     public static String RESET_TEXT = "§eIt's new day! Playtime has been resetted.";
@@ -70,6 +71,7 @@ public class ServerPlayertimeTicker implements ModInitializer {
             ConfigData configData = ConfigDataManager.loadConfigData();
             MAX_PLAYTIME_SECONDS = configData.getMaxPlaytimeSeconds();
             RESET_PLAYTIME_ON_KICK = configData.getResetPlaytimeOnKick();
+            SEND_ACTIONBAR = configData.getSendActionbar();
             ACTIONBAR_TEXT = configData.getActionbarText();
             KICK_MESSAGE = configData.getKickMessage();
             RESET_TEXT = configData.getResetMessage();
@@ -155,8 +157,7 @@ public class ServerPlayertimeTicker implements ModInitializer {
                     Text actionBarText = Text.of(actionbarText);
 
                     // Send action bar message to player
-                    player.sendMessage(actionBarText, true);
-
+                    if(SEND_ACTIONBAR) player.sendMessage(actionBarText, true);
                 }
 
                 // Update PlaytimeData with player playtimes

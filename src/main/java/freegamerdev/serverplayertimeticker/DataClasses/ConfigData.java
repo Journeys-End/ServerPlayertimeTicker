@@ -3,6 +3,7 @@ package freegamerdev.serverplayertimeticker.DataClasses;
 public class ConfigData {
     private int maxPlaytimeSeconds;
     private boolean resetPlaytimeOnKick;
+    private boolean sendActionbar;
     private String actionbarText;
     private String kickMessage;
     private String resetMessage;
@@ -10,6 +11,8 @@ public class ConfigData {
     public ConfigData() {
         maxPlaytimeSeconds = 5 * 60 * 60;
         actionbarText = "§e{{time}} {{progressbar}}";
+        resetPlaytimeOnKick = false;
+        sendActionbar = true;
         kickMessage = "You have exceeded the maximum playtime for today.";
         resetMessage = "§eIts new day! Playtime has been resetted.";
     }
@@ -20,6 +23,10 @@ public class ConfigData {
 
     public boolean getResetPlaytimeOnKick() {
         return resetPlaytimeOnKick;
+    }
+
+    public boolean getSendActionbar() {
+        return sendActionbar;
     }
 
     public void setMaxPlaytimeSeconds(int maxPlaytimeSeconds) {
